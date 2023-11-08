@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import TopBar from "./common/nav";
+import Home from "./pages/home";
+import PageNotFound from "./pages/pageNotFound";
+import Footer from './common/footer';
+import Form from './pages/form';
 
 function App() {
+  const appStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh'
+  };
+
+  const routesStyle = {
+    flex: '1'
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={appStyle}>
+      <TopBar />
+      <div style={routesStyle}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }
