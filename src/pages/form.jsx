@@ -95,8 +95,7 @@ export function Dots({ currentStep, setCurrentStep }) {
   );
 }
 
-export function StepOne({onAction}) {
-  const [selectedAnimal, setSelectedAnimal] = useState(null);
+export function StepOne({onAction, setSelectedAnimal, selectedAnimal}) {
 
   const animals = [
     { id: 'duck', src: duck },
@@ -143,9 +142,18 @@ export function StepOne({onAction}) {
   );
 }
 
-export function StepTwo({onAction}) {
-  const [selectedColor, setSelectedColor] = useState(null);
-  const colors = ['red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink', 'gray']
+export function StepTwo({ onAction, setSelectedColor, selectedColor}) {
+
+  const colors = [
+    { name: 'red', light: '#ffcdd2', dark: '#e57373', border: '#ef5350' },
+    { name: 'yellow', light: '#fff9c4', dark: '#fff176', border: '#ffee58' },
+    { name: 'green', light: '#c8e6c9', dark: '#81c784', border: '#66bb6a' },
+    { name: 'blue', light: '#bbdefb', dark: '#64b5f6', border: '#42a5f5' },
+    { name: 'indigo', light: '#c5cae9', dark: '#7986cb', border: '#5c6bc0' },
+    { name: 'purple', light: '#e1bee7', dark: '#ba68c8', border: '#ab47bc' },
+    { name: 'pink', light: '#f8bbd0', dark: '#f06292', border: '#ec407a' },
+    { name: 'gray', light: '#eeeeee', dark: '#e0e0e0', border: '#bdbdbd' }
+  ];
 
   const selectColor = (color) => {
     setSelectedColor(color);
@@ -159,15 +167,28 @@ export function StepTwo({onAction}) {
       {/* Color Picker */}
       <div className='flex flex-wrap mt-7 space-x-3 mx-auto max-w-3xl overflow-auto item-center justify-center'>
         {colors.map((color, index) => (
-          <button 
+          <button
             type='button'
             key={index}
-            onClick={() => selectColor(color)}
-            className={`flex justify-center items-center w-14 h-7 mt-3 rounded-md bg-${color}-100 px-2 py-1 text-xs font-medium text-${color}-700 hover:border-${color}-500 hover:border-2 ${
-              selectedColor === color ? 'border-2 border-indigo-700' : ''
-            }`}
+            onClick={() => selectColor(color.name)}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '3.5rem', // 14 in tailwind
+              height: '1.75rem', // 7 in tailwind
+              marginTop: '0.75rem', // 3 in tailwind
+              borderRadius: '0.375rem', // rounded-md in tailwind
+              backgroundColor: color.light,
+              color: color.dark,
+              borderWidth: selectedColor === color.name ? '2px' : '0',
+              borderColor: color.border,
+              padding: '0.25rem 0.5rem', // px-2 py-1 in tailwind
+              fontSize: '0.75rem', // text-xs in tailwind
+              fontWeight: 'medium' // font-medium in tailwind
+            }}
           >
-            {index+1}
+            {index + 1}
           </button>
         ))}
       </div>
@@ -176,9 +197,8 @@ export function StepTwo({onAction}) {
 }
 
 
-export function StepThree({onAction}) {
-  // State to store the value of the textarea
-  const [challenge, setChallenge] = useState('');
+
+export function StepThree({onAction, setChallenge, challenge}) {
 
   // Handler to update the state when the textarea value changes
   const handleChallengeChange = (event) => {
@@ -206,10 +226,7 @@ export function StepThree({onAction}) {
   );
 }
 
-
-
-export function StepFour({onAction}) {
-  const [selectedSkill, setSelectedSkill] = useState(null);
+export function StepFour({onAction, setSelectedSkill, selectedSkill}) {
 
   const skills = ["好奇心", "勇於學習", "創造力", "洞察力", "判斷力", "正直", "公平", "勇氣", "專注力", "耐心", "自信", "同理心", "善良", "毅力", "領導力", "解決問題", "人際交往"];
 
@@ -245,10 +262,34 @@ export default function CustomForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [actionTaken, setActionTaken] = useState(false);
 
+  // state to track if all steps have been completed
+  const [allStepsCompleted, setAllStepsCompleted] = useState(false);
+
+  const [selectedAnimal, setSelectedAnimal] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [challenge, setChallenge] = useState('');
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
+  // New state variables for each step's completion status
+  const [isAnimalSelected, setIsAnimalSelected] = useState(false);
+  const [isColorSelected, setIsColorSelected] = useState(false);
+  const [isChallengeEntered, setIsChallengeEntered] = useState(false);
+  const [isSkillSelected, setIsSkillSelected] = useState(false);
+
   // This effect resets actionTaken to false every time the currentStep changes
   useEffect(() => {
-    setActionTaken(false);
-  }, [currentStep]);
+    if (selectedAnimal) setIsAnimalSelected(true);
+    if (selectedColor) setIsColorSelected(true);
+    if (challenge) setIsChallengeEntered(true);
+    if (selectedSkill) setIsSkillSelected(true);
+
+    setAllStepsCompleted(
+      isAnimalSelected &&
+      isColorSelected &&
+      isChallengeEntered &&
+      isSkillSelected
+    );
+  }, [selectedAnimal, selectedColor, challenge, selectedSkill, isAnimalSelected, isColorSelected, isChallengeEntered, isSkillSelected]);
 
   // Call this function when the user takes an action in one of the steps
   const handleUserAction = () => {
@@ -257,25 +298,44 @@ export default function CustomForm() {
 
   // Call this function to advance to the next step
   const goToNextStep = () => {
-    if (currentStep < 4) {
+    const stepCompleted = (currentStep === 1 && isAnimalSelected) ||
+                          (currentStep === 2 && isColorSelected) ||
+                          (currentStep === 3 && isChallengeEntered) ||
+                          (currentStep === 4 && isSkillSelected);
+
+    if (stepCompleted && currentStep < 4) {
       setCurrentStep(currentStep + 1);
+    } else if (currentStep === 4 && allStepsCompleted) {
+      finishStoryCreation();
+    }
+  };
+
+  const finishStoryCreation = () => {
+    if (allStepsCompleted) {
+      // Log the message and perform any other final actions here
+      console.log('Story creation finished with data:', { selectedAnimal, selectedColor, challenge, selectedSkill });
+      // Possibly navigate to another page or show a success message
+    } else {
+      // Optionally, inform the user that all steps must be completed
+      console.warn('Please complete all steps before finishing the story creation.');
     }
   };
 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <StepOne onAction={handleUserAction} />;
+        return <StepOne onAction={handleUserAction} setSelectedAnimal={setSelectedAnimal} selectedAnimal={selectedAnimal} />;
       case 2:
-        return <StepTwo onAction={handleUserAction} />;
+        return <StepTwo onAction={handleUserAction} setSelectedColor={setSelectedColor} selectedColor={selectedColor} />;
       case 3:
-        return <StepThree onAction={handleUserAction} />;
+        return <StepThree onAction={handleUserAction} setChallenge={setChallenge} challenge={challenge} />;
       case 4:
-        return <StepFour onAction={handleUserAction} />;
+        return <StepFour onAction={handleUserAction} setSelectedSkill={setSelectedSkill} selectedSkill={selectedSkill} />;
       default:
         return <h3>Unknown step</h3>;
     }
   };
+  
 
   const buttonText = currentStep === 4 ? "開始創造故事 !" : "下一步";
 
@@ -283,20 +343,29 @@ export default function CustomForm() {
     <div className="flex flex-col items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-7">
       <h3 className="text-3xl font-bold mb-4 sm:mb-6 sm:text-center">客製故事</h3>
       <Dots currentStep={currentStep} setCurrentStep={setCurrentStep} />
-      <div className="mt-15 w-full items-center">
+      <div className="mt-14 w-full items-center">
         {renderStep()}
       </div>
       {/* Responsive button - Only show if an action has been taken */}
-      {actionTaken && (
+      {currentStep === 4 ? (
         <button
-          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mb-4 mt-14"
-          onClick={goToNextStep}
+          className={`bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mb-4 mt-14 ${!allStepsCompleted ? "opacity-50 cursor-not-allowed" : ""}`}
+          onClick={finishStoryCreation}
+          disabled={!allStepsCompleted}
         >
           {buttonText}
         </button>
+      ) : (
+        actionTaken && (
+          <button
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mb-4 mt-14"
+            onClick={goToNextStep}
+          >
+            {buttonText}
+          </button>
+        )
       )}
     </div>
   );
 }
-
 

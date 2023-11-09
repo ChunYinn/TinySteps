@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import TopBar from "./common/nav";
 import Home from "./pages/home";
-import PageNotFound from "./pages/pageNotFound";
 import Footer from './common/footer';
 import Form from './pages/form';
 
@@ -23,7 +22,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
-          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
       <Footer />
