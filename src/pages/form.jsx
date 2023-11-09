@@ -10,7 +10,7 @@ import cow from '../assets/img/cow.png'
 import rabbit from '../assets/img/rabbit.png'
 import sheep from '../assets/img/sheep.png'
 import monkey from '../assets/img/monkey.png'
-
+import axios from 'axios';
 
 
 function classNames(...classes) {
@@ -310,11 +310,27 @@ export default function CustomForm() {
     }
   };
 
-  const finishStoryCreation = () => {
+  const getStory = async () => {
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ selectedAnimal, selectedColor, challenge, selectedSkill })
+    }
+  
+    try {
+      // Notice the URL points to localhost:5000 instead of localhost:3000
+      const response = await fetch('http://localhost:5000/process-data', options);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.warn('Error creating story:', error);
+    }
+  };
+  
+
+  const finishStoryCreation = async () => {
     if (allStepsCompleted) {
-      // Log the message and perform any other final actions here
-      console.log('Story creation finished with data:', { selectedAnimal, selectedColor, challenge, selectedSkill });
-      // Possibly navigate to another page or show a success message
+      getStory();
     } else {
       // Optionally, inform the user that all steps must be completed
       console.warn('Please complete all steps before finishing the story creation.');

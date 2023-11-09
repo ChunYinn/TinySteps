@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Footer from './common/footer';
 import Form from './pages/form';
 import Stories from './pages/stories';
+import NewStory from './pages/storygenerated';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
           <Route path="/stories" element={<Stories />} />
+          <Route path="/stories/:id" element={<NewStory />} />
         </Routes>
       </div>
       <Footer />
