@@ -3,6 +3,8 @@ import TopBar from "./common/nav";
 import Home from "./pages/home";
 import Footer from './common/footer';
 import Form from './pages/form';
+import Stories from './pages/stories';
+
 
 function App() {
   const appStyle = {
@@ -22,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/stories" element={<Stories />} />
         </Routes>
       </div>
       <Footer />
