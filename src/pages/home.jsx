@@ -1,6 +1,18 @@
+import book from '../assets/img/3dbook.png';
+
 export default function Example() {
   return (
-    <div className="bg-white">
+    <div className="flex flex-col md:flex-row items-center bg-white"> 
+      {/* Image container */}
+      <div className="md:w-1/2">
+        <img
+          src={book} // Assuming you've imported 'book' at the top of your file
+          alt="3D Book"
+          className="w-full h-auto object-cover" // Adjust object-fit as needed
+        />
+      </div>
+      
+      {/* Text content */}
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
