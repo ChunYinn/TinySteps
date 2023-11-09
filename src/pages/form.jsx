@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { CheckIcon } from '@heroicons/react/20/solid';
-import croco from '../assets/img/crocodile.png'
+import duck from '../assets/img/duck.png'
 import elephant from '../assets/img/elephant.png'
-import bear from '../assets/img/bear.png'
+import pig from '../assets/img/pig.png'
 import cat from '../assets/img/cat.png'
-import dinosaur from '../assets/img/dinosaur.png'
-import dog from '../assets/img/dog.png'
+import horse from '../assets/img/horse.png'
+import cow from '../assets/img/cow.png'
 // import mouse from '../assets/img/mouse.png'
 import rabbit from '../assets/img/rabbit.png'
-import tiger from '../assets/img/tiger.png'
-import owl from '../assets/img/owl.png'
+import sheep from '../assets/img/sheep.png'
+import monkey from '../assets/img/monkey.png'
 
 
 
@@ -25,7 +25,7 @@ export function Dots({ currentStep, setCurrentStep }) {
     { id: 3, name: 'Step 3', status: currentStep > 3 ? 'complete' : currentStep === 3 ? 'current' : 'upcoming' },
     { id: 4, name: 'Step 4', status: currentStep === 4 ? 'current' : 'upcoming' },
   ];
-  
+
   return (
     <nav aria-label="Progress">
       <ol role="list" className="flex items-center">
@@ -99,15 +99,15 @@ export function StepOne({onAction}) {
   const [selectedAnimal, setSelectedAnimal] = useState(null);
 
   const animals = [
-    { id: 'croco', src: croco },
+    { id: 'duck', src: duck },
     { id: 'elephant', src: elephant },
-    { id: 'bear', src: bear },
+    { id: 'pig', src: pig },
     { id: 'cat', src: cat },
-    { id: 'dinosaur', src: dinosaur },
-    { id: 'dog', src: dog },
+    { id: 'horse', src: horse },
+    { id: 'cow', src: cow },
     { id: 'rabbit', src: rabbit },
-    { id: 'tiger', src: tiger },
-    { id: 'owl', src: owl },
+    { id: 'sheep', src: sheep },
+    { id: 'monkey', src: monkey },
   ];
 
   const selectAnimal = (animalId) => {
@@ -123,7 +123,7 @@ export function StepOne({onAction}) {
           <button
             key={animal.id}
             onClick={() => selectAnimal(animal.id)}
-            className={`p-2 mt-2 rounded-full border-2 ${
+            className={`p-2 mt-2 mb-2 rounded-full border-2 ${
               selectedAnimal === animal.id
                 ? 'border-indigo-600'
                 : 'border-transparent'
@@ -283,7 +283,7 @@ export default function CustomForm() {
     <div className="flex flex-col items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-7">
       <h3 className="text-3xl font-bold mb-4 sm:mb-6 sm:text-center">客製故事</h3>
       <Dots currentStep={currentStep} setCurrentStep={setCurrentStep} />
-      <div className="mt-10 w-full items-center">
+      <div className="mt-15 w-full items-center">
         {renderStep()}
       </div>
       {/* Responsive button - Only show if an action has been taken */}
