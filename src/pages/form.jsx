@@ -10,7 +10,8 @@ import cow from '../assets/img/cow.png'
 import rabbit from '../assets/img/rabbit.png'
 import sheep from '../assets/img/sheep.png'
 import monkey from '../assets/img/monkey.png'
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import LoadingAnimation from '../assets/img/nap.gif';
 
 
 function classNames(...classes) {
@@ -196,8 +197,6 @@ export function StepTwo({ onAction, setSelectedColor, selectedColor}) {
   );
 }
 
-
-
 export function StepThree({onAction, setChallenge, challenge}) {
 
   // Handler to update the state when the textarea value changes
@@ -276,6 +275,9 @@ export default function CustomForm() {
   const [isChallengeEntered, setIsChallengeEntered] = useState(false);
   const [isSkillSelected, setIsSkillSelected] = useState(false);
 
+  const [loading, setLoading] = useState(false); // New state for loading
+  const navigate = useNavigate(); // Hook for navigation
+
   // This effect resets actionTaken to false every time the currentStep changes
   useEffect(() => {
     if (selectedAnimal) setIsAnimalSelected(true);
@@ -311,6 +313,8 @@ export default function CustomForm() {
   };
 
   const getStory = async () => {
+    setLoading(true);
+  
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -318,19 +322,61 @@ export default function CustomForm() {
     }
   
     try {
-      // Notice the URL points to localhost:5000 instead of localhost:3000
       const response = await fetch('http://localhost:5000/process-data', options);
       const data = await response.json();
-      console.log(data);
+
+      const fullText = data.choices[0].message.content;
+      const titleStart = fullText.indexOf("標題:");
+      const storyStart = fullText.indexOf("故事開始:");
+      const title = fullText.substring(titleStart + 3, storyStart).trim();
+      const story = fullText.substring(storyStart + 5).trim();
+
+      
+      console.log('Raw API response:', data); // Log the raw response
+  
+      if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+        console.log('Processed story content:', data.choices[0].message.content);
+        // Options for the POST request to generate the image
+        const imagePrompt = `Illustration of ${selectedAnimal} in ${selectedColor} having a ${challenge} using ${selectedSkill}`; // Customize this prompt as needed
+        const imageOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: imagePrompt })
+        };
+
+        // Fetch the image from your new API endpoint
+        const imageResponse = await fetch('http://localhost:5000/generate-image', imageOptions);
+        const imageData = await imageResponse.json();
+        const imageUrl = imageData.imageUrl; // The URL of the generated image
+
+        // Navigate to the new page with story and image URL
+        navigate('/stories/new', { 
+          state: { 
+            title,
+            story,
+            imageUrl,
+            selectedAnimal, // The selected animal
+            selectedColor, // The selected color
+            challenge, // The challenge entered
+            selectedSkill // The selected skill
+           } 
+        });
+      } else {
+        // The data is not in the expected format
+        throw new Error('The response data is not in the expected format.');
+      }
     } catch (error) {
-      console.warn('Error creating story:', error);
+      console.error('Error fetching story:', error);
+      // Here you could set an error state and display a message to the user
+      // setError('There was a problem fetching the story.');
+    } finally {
+      setLoading(false);
     }
   };
   
-
   const finishStoryCreation = async () => {
     if (allStepsCompleted) {
-      getStory();
+      await getStory();
     } else {
       // Optionally, inform the user that all steps must be completed
       console.warn('Please complete all steps before finishing the story creation.');
@@ -354,6 +400,15 @@ export default function CustomForm() {
   
 
   const buttonText = currentStep === 4 ? "開始創造故事 !" : "下一步";
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-screen">
+        <img src={LoadingAnimation} alt="Loading..." />
+      </div>
+    );
+  }
+
 
   return(
     <div className="flex flex-col items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-7">

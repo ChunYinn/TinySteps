@@ -26,7 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
           <Route path="/stories" element={<Stories />} />
-          <Route path="/stories/:id" element={<NewStory />} />
+          <Route path="/stories/new" element={<NewStory />} />
         </Routes>
       </div>
       <Footer />

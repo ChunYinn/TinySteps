@@ -1,21 +1,46 @@
-const stats = [
-  { label: 'Founded', value: '2021' },
-  { label: 'Employees', value: '37' },
-  { label: 'Countries', value: '12' },
-  { label: 'Raised', value: '$25M' },
-]
+import { useLocation } from 'react-router-dom';
+import LoadingAnimation from '../assets/img/nap.gif';
 
 export default function Example() {
+  const location = useLocation();
+  const { title, story, imageUrl, selectedAnimal, selectedColor, challenge, selectedSkill } = location.state || {};
+
+  // Format today's date as YYYY-MM-DD
+  const today = new Date().toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).replace(/\//g, '-');
+
+  // Calculate word count
+  const wordCount = (story.match(/[\u4e00-\u9fff]/g) || []).length;
+
+  // Update your stats array with dynamic values
+  const stats = [
+    { label: '字數', value: wordCount.toString() },
+    { label: '語言', value: '中文' },
+    { label: '歲數', value: '1~5' },
+    { label: '日期', value: today },
+  ];
+
+  if (!story) {
+    return (
+      <div className="flex justify-center items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-screen">
+        <img src={LoadingAnimation} alt="Loading..." />
+      </div>
+    );
+  }
+
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-14 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-4">
             <div className="relative overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
               <img
                 className="absolute inset-0 h-full w-full object-cover brightness-125 saturate-0"
-                src="https://images.unsplash.com/photo-1630569267625-157f8f9d1a7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2669&q=80"
-                alt=""
+                src={imageUrl}
+                alt="Story Picture"
               />
               <div className="absolute inset-0 bg-gray-900 mix-blend-multiply" />
               <div
@@ -58,42 +83,39 @@ export default function Example() {
           </div>
           <div>
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-              <p className="text-base font-semibold leading-7 text-indigo-600">Company values</p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                On a mission to empower remote teams
+              
+              <div className='flex flex-row gap-3 mb-5'>
+                <span className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+                  {selectedAnimal}
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+                  {selectedColor}
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+                  {challenge}
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+                  {selectedSkill}
+                </span>
+              </div>             
+
+              <h1 className="mt-5sa text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                {title}
               </h1>
               <div className="max-w-xl">
                 <p className="mt-6">
-                  Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
-                  vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
-                  erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                  semper sed amet vitae sed turpis id.
-                </p>
-                <p className="mt-8">
-                  Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie
-                  auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-                  hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-                </p>
-                <p className="mt-8">
-                  Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie
-                  auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-                  hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
+                  {story}  
                 </p>
               </div>
             </div>
             <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
               {stats.map((stat, statIdx) => (
-                <div key={statIdx}>
-                  <dt className="text-sm font-semibold leading-6 text-gray-600">{stat.label}</dt>
-                  <dd className="mt-2 text-3xl font-bold leading-10 tracking-tight text-gray-900">{stat.value}</dd>
+                <div key={statIdx} className="flex flex-col">
+                  <dt className="text-base font-semibold text-gray-600">{stat.label}</dt>
+                  <dd className="text-lg font-medium text-gray-900">{stat.value}</dd>
                 </div>
               ))}
             </dl>
-            <div className="mt-10 flex">
-              <a href="#" className="text-base font-semibold leading-7 text-indigo-600">
-                Learn more about our company <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>
