@@ -38,7 +38,7 @@ export function Dots({ currentStep, setCurrentStep }) {
                   <div className="h-0.5 w-full bg-indigo-600" />
                 </div>
               <a
-                href="#"
+                // href="#"
                 onClick={(e) => {
                   e.preventDefault();
                   setCurrentStep(step.id);
@@ -55,7 +55,7 @@ export function Dots({ currentStep, setCurrentStep }) {
                   <div className="h-0.5 w-full bg-gray-200" />
                 </div>
               <a
-                href="#"
+                // href="#"
                 onClick={(e) => {
                   e.preventDefault();
                   setCurrentStep(step.id);
@@ -74,7 +74,7 @@ export function Dots({ currentStep, setCurrentStep }) {
                   <div className="h-0.5 w-full bg-gray-200" />
                 </div>
               <a
-                href="#"
+                // href="#"
                 onClick={(e) => {
                   e.preventDefault();
                   setCurrentStep(step.id);
@@ -312,7 +312,7 @@ export default function CustomForm() {
     }
   };
 
-  const getStory = async () => {
+  const getStoryAndImage = async () => {
     setLoading(true);
   
     const options = {
@@ -322,43 +322,29 @@ export default function CustomForm() {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/process-data', options);
+      const response = await fetch('http://localhost:5000/process-story-and-image', options);
       const data = await response.json();
-
-      const fullText = data.choices[0].message.content;
-      const titleStart = fullText.indexOf("標題:");
-      const storyStart = fullText.indexOf("故事開始:");
-      const title = fullText.substring(titleStart + 3, storyStart).trim();
-      const story = fullText.substring(storyStart + 5).trim();
-
-      
+   
       console.log('Raw API response:', data); // Log the raw response
   
-      if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-        console.log('Processed story content:', data.choices[0].message.content);
-        // Options for the POST request to generate the image
-        const imagePrompt = `Illustration of ${selectedAnimal} in ${selectedColor} having a ${challenge} using ${selectedSkill}`; // Customize this prompt as needed
-        const imageOptions = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: imagePrompt })
-        };
-
-        // Fetch the image from your new API endpoint
-        const imageResponse = await fetch('http://localhost:5000/generate-image', imageOptions);
-        const imageData = await imageResponse.json();
-        const imageUrl = imageData.imageUrl; // The URL of the generated image
+      if (data.story && data.imageUrl) {
+        
+        const fullText = data.story;
+        const titleStart = fullText.indexOf("標題:");
+        const storyStart = fullText.indexOf("故事開始:");
+        const title = fullText.substring(titleStart + 3, storyStart).trim();
+        const story = fullText.substring(storyStart + 5).trim();
 
         // Navigate to the new page with story and image URL
         navigate('/stories/new', { 
           state: { 
             title,
             story,
-            imageUrl,
-            selectedAnimal, // The selected animal
-            selectedColor, // The selected color
-            challenge, // The challenge entered
-            selectedSkill // The selected skill
+            imageUrl: data.imageUrl,
+            selectedAnimal,
+            selectedColor, 
+            challenge, 
+            selectedSkill 
            } 
         });
       } else {
@@ -367,8 +353,6 @@ export default function CustomForm() {
       }
     } catch (error) {
       console.error('Error fetching story:', error);
-      // Here you could set an error state and display a message to the user
-      // setError('There was a problem fetching the story.');
     } finally {
       setLoading(false);
     }
@@ -376,7 +360,7 @@ export default function CustomForm() {
   
   const finishStoryCreation = async () => {
     if (allStepsCompleted) {
-      await getStory();
+      await getStoryAndImage();
     } else {
       // Optionally, inform the user that all steps must be completed
       console.warn('Please complete all steps before finishing the story creation.');
