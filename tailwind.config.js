@@ -6,7 +6,6 @@ module.exports = {
     // ...
     require('@tailwindcss/forms'),
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       height:{
