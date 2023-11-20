@@ -322,7 +322,7 @@ export default function CustomForm() {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/process-story-and-image', options);
+      const response = await fetch('https://tiny-steps-2023.de.r.appspot.com/process-story-and-image', options);
       const data = await response.json();
    
       console.log('Raw API response:', data); // Log the raw response
