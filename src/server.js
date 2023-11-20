@@ -7,9 +7,16 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
+const corsOptions = {
+    origin: 'https://tiny-steps-2023.de.r.appspot.com',
+    // other CORS options as needed
+  };
+app.use(cors(corsOptions));
+
+//app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'build')));
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -71,7 +78,12 @@ app.post('/process-story-and-image', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
+//for production
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

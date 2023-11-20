@@ -1,0 +1,13 @@
+runtime: nodejs18
+env_variables:
+  OPENAI_API_KEY: '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'
+
+handlers:
+  # Serve all static files with URL ending with a file extension
+  - url: /(.*\..+)$
+    static_files: build/\1
+    upload: build/(.*\..+)$
+  # Catch-all handler to index.html
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
