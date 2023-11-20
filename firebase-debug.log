@@ -1,0 +1,216 @@
+[debug] [2023-11-20T03:38:30.484Z] ----------------------------------------------------------------------
+[debug] [2023-11-20T03:38:30.486Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-20T03:38:30.487Z] CLI Version:   12.9.1
+[debug] [2023-11-20T03:38:30.487Z] Platform:      win32
+[debug] [2023-11-20T03:38:30.487Z] Node Version:  v18.12.1
+[debug] [2023-11-20T03:38:30.488Z] Time:          Mon Nov 20 2023 14:38:30 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2023-11-20T03:38:30.488Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-20T03:38:30.495Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-20T03:38:30.495Z] > authorizing via signed-in user (ericlijunyin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Eric\Desktop\Baby_Stories\storyai
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-11-20T03:39:59.236Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/availableProjects pageSize=100
+[debug] [2023-11-20T03:40:00.605Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/availableProjects 200
+[debug] [2023-11-20T03:40:00.606Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/availableProjects [omitted]
+[debug] [2023-11-20T03:41:24.722Z] ----------------------------------------------------------------------
+[debug] [2023-11-20T03:41:24.725Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-20T03:41:24.726Z] CLI Version:   12.9.1
+[debug] [2023-11-20T03:41:24.727Z] Platform:      win32
+[debug] [2023-11-20T03:41:24.727Z] Node Version:  v18.12.1
+[debug] [2023-11-20T03:41:24.728Z] Time:          Mon Nov 20 2023 14:41:24 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2023-11-20T03:41:24.729Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-20T03:41:24.736Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-20T03:41:24.737Z] > authorizing via signed-in user (ericlijunyin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Eric\Desktop\Baby_Stories\storyai
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-11-20T03:41:40.239Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/availableProjects pageSize=100
+[debug] [2023-11-20T03:41:41.560Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/availableProjects 200
+[debug] [2023-11-20T03:41:41.560Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/availableProjects [omitted]
+[debug] [2023-11-20T03:41:50.188Z] ----------------------------------------------------------------------
+[debug] [2023-11-20T03:41:50.190Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-20T03:41:50.191Z] CLI Version:   12.9.1
+[debug] [2023-11-20T03:41:50.191Z] Platform:      win32
+[debug] [2023-11-20T03:41:50.191Z] Node Version:  v18.12.1
+[debug] [2023-11-20T03:41:50.192Z] Time:          Mon Nov 20 2023 14:41:50 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2023-11-20T03:41:50.192Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-20T03:41:50.198Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-20T03:41:50.198Z] > authorizing via signed-in user (ericlijunyin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Eric\Desktop\Baby_Stories\storyai
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2023-11-20T03:42:20.296Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2023-11-20T03:42:20.297Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"tinySteps","name":"tinySteps"}
+[debug] [2023-11-20T03:42:21.328Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 400
+[debug] [2023-11-20T03:42:21.328Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":400,"message":"field [project_id] has issue [project_id contains invalid characters]","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"project_id","description":"project_id contains invalid characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2023-11-20T03:42:21.547Z] FirebaseError: HTTP Error: 400, field [project_id] has issue [project_id contains invalid characters]
+    at responseToError (C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:285:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2023-11-20T03:44:03.200Z] ----------------------------------------------------------------------
+[debug] [2023-11-20T03:44:03.202Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-20T03:44:03.203Z] CLI Version:   12.9.1
+[debug] [2023-11-20T03:44:03.203Z] Platform:      win32
+[debug] [2023-11-20T03:44:03.203Z] Node Version:  v18.12.1
+[debug] [2023-11-20T03:44:03.204Z] Time:          Mon Nov 20 2023 14:44:03 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2023-11-20T03:44:03.204Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-20T03:44:03.210Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-20T03:44:03.210Z] > authorizing via signed-in user (ericlijunyin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Eric\Desktop\Baby_Stories\storyai
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-11-20T03:44:18.006Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/availableProjects pageSize=100
+[debug] [2023-11-20T03:44:19.282Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/availableProjects 200
+[debug] [2023-11-20T03:44:19.282Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/availableProjects [omitted]
+[debug] [2023-11-20T03:51:53.272Z] ----------------------------------------------------------------------
+[debug] [2023-11-20T03:51:53.273Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eric\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-20T03:51:53.274Z] CLI Version:   12.9.1
+[debug] [2023-11-20T03:51:53.274Z] Platform:      win32
+[debug] [2023-11-20T03:51:53.274Z] Node Version:  v18.12.1
+[debug] [2023-11-20T03:51:53.275Z] Time:          Mon Nov 20 2023 14:51:53 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2023-11-20T03:51:53.275Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-20T03:51:53.281Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-20T03:51:53.281Z] > authorizing via signed-in user (ericlijunyin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Eric\Desktop\Baby_Stories\storyai
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-11-20T03:51:59.135Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/availableProjects pageSize=100
+[debug] [2023-11-20T03:52:00.149Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/availableProjects 200
+[debug] [2023-11-20T03:52:00.150Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/availableProjects [omitted]
+[debug] [2023-11-20T03:52:05.879Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/tiny-steps-2023:addFirebase [none]
+[debug] [2023-11-20T03:52:08.109Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/tiny-steps-2023:addFirebase 200
+[debug] [2023-11-20T03:52:08.109Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/tiny-steps-2023:addFirebase {"name":"operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx"}
+[debug] [2023-11-20T03:52:08.110Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx [none]
+[debug] [2023-11-20T03:52:08.889Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx 200
+[debug] [2023-11-20T03:52:08.889Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx {"name":"operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx"}
+[debug] [2023-11-20T03:52:09.400Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-11-20T03:52:09.401Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx [none]
+[debug] [2023-11-20T03:52:10.169Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx 200
+[debug] [2023-11-20T03:52:10.169Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx {"name":"operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx"}
+[debug] [2023-11-20T03:52:11.170Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-11-20T03:52:11.170Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx [none]
+[debug] [2023-11-20T03:52:11.879Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx 200
+[debug] [2023-11-20T03:52:11.879Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx {"name":"operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx"}
+[debug] [2023-11-20T03:52:13.883Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-11-20T03:52:13.884Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx [none]
+[debug] [2023-11-20T03:52:14.597Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx 200
+[debug] [2023-11-20T03:52:14.598Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx {"name":"operations/workflows/MWJlNTRhNGItNmQ1ZS00MTliLTgyZDYtNGEyYTlhMjc0YmEx","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"tiny-steps-2023","projectNumber":"604983350813","displayName":"Tiny Steps 2023","name":"projects/tiny-steps-2023","resources":{"hostingSite":"tiny-steps-2023"}}}
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: tiny-steps-2023
+[info]    - Project Name: Tiny Steps 2023
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/tiny-steps-2023/overview
+[info] i  Using project tiny-steps-2023 (Tiny Steps 2023) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2023-11-20T03:52:14.629Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-11-20T03:52:14.629Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/tiny-steps-2023
+[debug] [2023-11-20T03:52:16.055Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com 200
+[debug] [2023-11-20T03:52:16.055Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2023-11-20T03:52:16.056Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2023-11-20T03:52:16.057Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/tiny-steps-2023
+[debug] [2023-11-20T03:52:17.621Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2023-11-20T03:52:17.621Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2023-11-20T03:52:27.624Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-11-20T03:52:27.625Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/tiny-steps-2023
+[debug] [2023-11-20T03:52:28.934Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com 200
+[debug] [2023-11-20T03:52:28.935Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tiny-steps-2023/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2023-11-20T03:52:28.939Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tiny-steps-2023 [none]
+[debug] [2023-11-20T03:52:29.397Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tiny-steps-2023 200
+[debug] [2023-11-20T03:52:29.397Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tiny-steps-2023 {"projectId":"tiny-steps-2023","projectNumber":"604983350813","displayName":"Tiny Steps 2023","name":"projects/tiny-steps-2023","resources":{"hostingSite":"tiny-steps-2023"},"state":"ACTIVE","etag":"1_e768593d-11e9-4378-8b4d-7b1fb79127bf"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
